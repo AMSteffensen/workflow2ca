@@ -34,13 +34,14 @@ function images() {
          .pipe(dest("dist/images"));
 }
 
-
+//move javascript
 function js() {
     return src('app/js/*.js', { sourcemaps: true })
         .pipe(dest('dist/js', { sourcemaps: true }))
 }
 
-function watchFiles(cb) {
+//browser reload on ANY file change
+function watchFiles() {
      browserSync.init({
          watch: true,
          files: ['./app/**/*'],
@@ -51,13 +52,11 @@ function watchFiles(cb) {
 exports.default = function () {
    watch('app/scss/*.scss', css);
    watch('app/*.html', html);
-   //watch(src('app/*'), watchFiles);
+   watch('app/**/**.js', js);
+   watch('app/images/**', images);
+   images();
+   watchFiles();
 }
-// exports.js = js;
-// exports.css = css;
-// exports.html = html;
-// exports.images = images;
-// exports.watch = watchFiles;
-// exports.build = series(images, parallel(html, css, js));
+
 
 
