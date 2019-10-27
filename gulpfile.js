@@ -2,11 +2,12 @@ const { src, dest, parallel, series } = require('gulp');
 const minifyCSS = require('gulp-csso');
 const sass = require('gulp-sass')
 const imagemin = require('gulp-imagemin');
+const browserSync = require('browser-sync').create();
 
 //Copy all html files from your app folder to dist folder
 function html() {
     console.log('moving html files to dist')
-    return src('src/html/**.*')   
+    return src('src/**.html')   
         .pipe(dest('dist/'))
 }
 
@@ -28,7 +29,7 @@ function images() {
     console.log('minify images')
      return src("src/images/**/*.{png,jpg,jpeg,svg}")
          .pipe(imagemin())
-         .pipe(dest("dist/img"));
+         .pipe(dest("dist/images"));
 }
 
 
@@ -37,12 +38,20 @@ function js() {
         .pipe(dest('dist/js', { sourcemaps: true }))
 }
 
+function watch() {
+     browserSync.init({
+         server: "./dist"
+     });
+}
+
+//Tasks
+//const watchFiles = parallel(watch, browserSync);
+
 exports.js = js;
 exports.css = css;
 exports.html = html;
 exports.images = images;
-//exports.series = series(images);
-exports.default = series(images, parallel(html, css, js));
+exports.watch = watch;
+exports.build = series(images, parallel(html, css, js));
 
-//exports.default = series(images, parallel(html, css, js));
 
