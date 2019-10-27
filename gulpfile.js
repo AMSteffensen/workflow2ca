@@ -1,6 +1,7 @@
-const { src, dest, parallel } = require('gulp');
+const { src, dest, parallel, series } = require('gulp');
 const minifyCSS = require('gulp-csso');
 const sass = require('gulp-sass')
+const imagemin = require('gulp-imagemin');
 
 //Copy all html files from your app folder to dist folder
 function html() {
@@ -9,9 +10,9 @@ function html() {
         .pipe(dest('dist/'))
 }
 
-
 //Convert sass files to .css
 function css() {
+    console.log('convert sass to css')
     return src('src/scss/main.scss')
         .pipe(sass())
         //minify css
@@ -22,6 +23,15 @@ function css() {
 //watch sass for changes
 
 
+//compress images
+function images() {
+    console.log('minify images')
+     return src("src/images/**/*.{png,jpg,jpeg,svg}")
+         .pipe(imagemin())
+         .pipe(dest("dist/img"));
+}
+
+
 function js() {
     return src('src/js/*.js', { sourcemaps: true })
         .pipe(dest('dist/js', { sourcemaps: true }))
@@ -30,4 +40,9 @@ function js() {
 exports.js = js;
 exports.css = css;
 exports.html = html;
-exports.default = parallel(html, css, js);
+exports.images = images;
+//exports.series = series(images);
+exports.default = series(images, parallel(html, css, js));
+
+//exports.default = series(images, parallel(html, css, js));
+
