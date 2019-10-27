@@ -1,5 +1,5 @@
 const { src, dest, parallel } = require('gulp');
-//const minifyCSS = require('gulp-csso');
+const minifyCSS = require('gulp-csso');
 const sass = require('gulp-sass')
 
 //Copy all html files from your app folder to dist folder
@@ -8,16 +8,19 @@ function html() {
     return src('src/html/**.*')   
         .pipe(dest('dist/'))
 }
-//compile gulp.task(‘sass’, function () { gulp.src(‘app/scss/app.scss’) .pipe(sass().on(‘error’, sass.logError)) .pipe(gulp.dest(‘app/css’)); });
+
 
 //Convert sass files to .css
 function css() {
     return src('src/scss/main.scss')
         .pipe(sass())
         //minify css
-        //.pipe(minifyCSS())
+        .pipe(minifyCSS())
         .pipe(dest('dist/css'))
 }
+
+//watch sass for changes
+
 
 function js() {
     return src('src/js/*.js', { sourcemaps: true })
