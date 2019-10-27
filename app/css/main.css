@@ -1,0 +1,278 @@
+/* 
+Colors
+#16a84a;
+#91d940;
+#5f91ff;
+#402a0f; (rgba(64, 42, 15, 1))
+#ebe560;
+
+font-family: 'Lora', serif;
+font-family: 'Ubuntu', sans-serif;
+
+Author: 
+Andreas Steffensen 
+2018
+*/
+@import url("https://fonts.googleapis.com/css?family=Lora:400,700,700i|Ubuntu:300,400,700");
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 100;
+  font-size: 2em;
+  position: relative; }
+
+h1,
+h2,
+h3 {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  margin: 0; }
+
+/* Header Navigation */
+.navbar {
+  border-radius: 0;
+  border: 0;
+  background-color: rgba(64, 42, 15, 0.5);
+  color: white; }
+
+header .navbar {
+  padding: 20px 0; }
+
+/* Navbar change default styles*/
+.navbar-default .navbar-nav > li > a {
+  color: #ebe560; }
+
+/* when navbar element is active change font weight to bold */
+header .navbar-default .navbar-nav .active a {
+  font-weight: 700;
+  padding-bottom: 20px;
+  text-decoration: underline;
+  color: #91d940;
+  background-color: transparent;
+  text-shadow: none; }
+
+header .navbar-default .navbar-nav .active a:hover {
+  color: #E15D5F;
+  background-color: transparent; }
+
+/* Navbar brand logo */
+.navbar-brand {
+  padding: 0;
+  margin: 0;
+  border-bottom: 4px solid #91d940; }
+
+header .navbar-brand {
+  background: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-position: 15px 0px;
+  height: auto; }
+
+header .navbar-brand h1 {
+  color: white;
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: 700;
+  padding-left: 105px; }
+
+header .navbar-brand span.subhead {
+  font-family: 'Lora', serif;
+  padding-left: 105px;
+  font-size: .7em;
+  font-weight: 400;
+  display: block;
+  text-transform: uppercase; }
+
+.navbar-default .navbar-brand #heading {
+  color: #191e61; }
+
+.navbar-default .navbar-brand span {
+  color: #fff; }
+
+/** Navbar toggle **/
+header .navbar-toggle {
+  background-color: #5f91ff; }
+
+/* Change default background collor of toggle button */
+header .navbar-default .navbar-toggle .icon-bar {
+  background-color: #ebe560; }
+
+/* Change color of toggle button both on focus and hover to white */
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+  background-color: #fff; }
+
+@media only screen and (max-width: 600px) {
+  /* Make more contrast to navbar when active */
+  header .navbar-collapse {
+    background-color: rgba(0, 0, 0, 0.5); } }
+
+/** PAGE **/
+.page {
+  padding: 50px 0; }
+
+.page h2 {
+  text-align: center;
+  margin-bottom: 30px; }
+
+/** PAGE - Mission **/
+#mission {
+  background-color: #91d940;
+  background-image: linear-gradient(to bottom, #191e61, #91d940);
+  border-top: 50px solid rgba(64, 42, 15, 0.5); }
+
+/* Style mission text to make it stand out */
+.mission {
+  color: white;
+  text-indent: 50px;
+  letter-spacing: 3px;
+  text-shadow: 3px 2px rgba(0, 0, 0, 0.5); }
+
+/* Disable carousel on small screen devices */
+@media only screen and (max-width: 360px) {
+  #featured {
+    display: none; }
+  /* Move mission area down */
+  #mission {
+    background-color: #91d940;
+    background-image: linear-gradient(to bottom, #191e61, #91d940);
+    padding-top: 100px; } }
+
+/** PAGE - About us **/
+#about {
+  margin: 20px 0;
+  /* text-align: center; */ }
+
+#about h2 {
+  margin-bottom: 10px; }
+
+.card {
+  margin: 0 auto;
+  /* Added */
+  float: none;
+  /* Added */
+  margin-bottom: 10px;
+  /* Added */
+  text-align: center; }
+
+.card img {
+  margin: 0 auto; }
+
+/* Styling buttons */
+.btn-primary {
+  background: #5f91ff;
+  padding: 14px 24px;
+  border: 0 none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase; }
+
+/* Style Call to action button */
+.btn.outline {
+  margin: 0 auto;
+  background: none;
+  width: 50%;
+  text-align: center;
+  padding: 12px 22px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #fff; }
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background: #ebe560;
+  color: #5f91ff; }
+
+/** PAGE - Bike trails **/
+#trails {
+  background-image: linear-gradient(#91d940, #402a0f);
+  color: #fff; }
+
+.trail h3 {
+  font-weight: 600;
+  font-size: 1.2em;
+  color: #142b48;
+  padding-bottom: 5px; }
+
+.trail p {
+  font-size: .8em; }
+
+.trail img {
+  width: 100%; }
+
+@media only screen and (max-width: 768px) {
+  .info {
+    padding: 20px;
+    margin: 0px; }
+  h3:last-of-type {
+    color: white;
+    padding: 20px; } }
+
+/* Footer */
+footer {
+  background-color: #402a0f;
+  color: #fff;
+  font-size: .8em;
+  padding: 20px 0 40px 0; }
+
+footer a {
+  background-color: #402a0f; }
+
+footer a:hover {
+  color: #fff !important; }
+
+footer .phone {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #ebe560; }
+
+/* Footer navigation */
+footer .navbar {
+  background-color: white;
+  margin-bottom: 0;
+  min-height: 0; }
+
+footer .navbar-default {
+  background-color: transparent;
+  border: none;
+  margin-right: 40px; }
+
+/* Hide skip to main content link 
+Source: https://accessibility.oit.ncsu.edu/ 2018 IT Acvcessibilty Handbook - Skip to main content
+*/
+a.skip-main {
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999; }
+
+/* Show skip to content when tabing */
+a.skip-main:focus,
+a.skip-main:active {
+  color: #fff;
+  background-color: #000;
+  left: auto;
+  top: auto;
+  width: 30%;
+  height: auto;
+  overflow: auto;
+  margin: 80px 30%;
+  padding: 25px;
+  border-radius: 25px;
+  border: 15px solid #ebe560;
+  text-align: center;
+  font-size: 1.2em;
+  z-index: 999; }
+
+@media only screen and (max-width: 600px) {
+  a.skip-main:focus,
+  a.skip-main:active {
+    margin: 80px 30%;
+    padding: 5px;
+    border-radius: 25px;
+    width: auto; } }
