@@ -22,8 +22,6 @@ function css() {
         .pipe(dest('app/css'))
         .pipe(minifyCSS())
         .pipe(dest('dist/css'))
-        
-
 }
 
 //compress images
@@ -57,6 +55,8 @@ exports.default = function () {
    images();
    watchFiles();
 }
+
+exports.build = series(images, parallel(html, css, js));
 
 
 
